@@ -1,2 +1,17 @@
-Post Page:
-It's working!
+<html>
+    <head>
+        <title>Django Blog</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Django Blog</a></h1>
+        </div>
+        {% for post in posts %}
+          <div>
+              <p>published: {{ post.published_date }}</p>
+              <h2><a href="">{{ post.title }}</a></h2>
+              <p>{{ post.text|linebreaks }}</p>
+          </div>
+        {% endfor %}
+    </body>
+</html>
