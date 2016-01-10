@@ -2,12 +2,15 @@
 
 {% block content %}
     <div class="post">
-        {% if post.published_date %}
         <div class="date">
+        {% if post.published_date %}
             {{ post.published_date }}
-        </div>
         {% endif %}
-        <h1><a href="{% url 'blog.views.post_detail' id=post.id  %}">{{ post.title }}</a></h1>
+        <a class="btn btn-default" href="{% url 'blog.views.post_edit' id=post.id %}">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        </div>
+        <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
     </div>
 {% endblock content %}
