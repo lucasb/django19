@@ -3,14 +3,20 @@
 {% block content %}
     <div class="post">
         <div class="date">
+
         {% if post.published_date %}
             {{ post.published_date }}
-        {% else %}
+        {% elif user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'blog.views.post_publish' id=post.id %}">Publish</a>
         {% endif %}
+        {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'blog.views.post_edit' id=post.id %}">
             <span class="glyphicon glyphicon-pencil"></span>
         </a>
+        <a class="btn btn-default" href="{% url 'blog.views.post_delete' id=post.id %}">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        {% endif %}
         </div>
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
