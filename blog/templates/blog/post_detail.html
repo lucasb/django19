@@ -5,6 +5,8 @@
         <div class="date">
         {% if post.published_date %}
             {{ post.published_date }}
+        {% else %}
+            <a class="btn btn-default" href="{% url 'blog.views.post_publish' id=post.id %}">Publish</a>
         {% endif %}
         <a class="btn btn-default" href="{% url 'blog.views.post_edit' id=post.id %}">
             <span class="glyphicon glyphicon-pencil"></span>

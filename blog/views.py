@@ -44,3 +44,14 @@ def post_edit(request, id):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form, 'posts': posts})
+
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__lte = timezone.now())\
+                        .order_by('published_date')
+    drafts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'blog/post_draft_list.html', {'drafts': drafts, 'posts': posts})
+
+def post_publish(request, id):
+    post = get_object_or_404(Post, id=id)
+    post.publish()
+    return redirect('blog.views.post_detail', id=id)

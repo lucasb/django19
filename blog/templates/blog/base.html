@@ -9,6 +9,7 @@
     <body>
         <div class="page-header">
             <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'blog.views.post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
             <h1><a href="/">Django Blog</a></h1>
         </div>
 
@@ -19,7 +20,7 @@
                 {% endblock %}
                 </div>
                 <div class="col-md-4">
-                    <h2>Posts List</h2>
+                    <h2>Published Posts</h2>
                     <ul>
                     {% for post in posts %}
                         <li><a href="{% url 'blog.views.post_detail' id=post.id %}">{{ post.title }}</a></li>
