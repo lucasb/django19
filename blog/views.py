@@ -34,7 +34,7 @@ def post_edit(request, id):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            redirect('blog.views.post_detail', id=post.id)
+            return redirect('blog.views.post_detail', id=post.id)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', { 'form': form })
