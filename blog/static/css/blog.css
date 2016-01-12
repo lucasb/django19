@@ -19,6 +19,16 @@ a {
     text-decoration: none;
 }
 
+.login-form {
+    padding: 40px;
+}
+
+.login-form input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
 .logout a {
     color: #fff;
     font-size: 24px;
@@ -55,4 +65,8 @@ a {
 
 .post h1 a, .post h1 a:visited {
     color: #333;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
 }
