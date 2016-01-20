@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
+from waffle.decorators import waffle_flag
+
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -90,3 +92,7 @@ def comment_remove(request, id=id):
     post_id = comment.post.id
     comment.delete()
     return redirect('blog.views.post_detail', id=post_id)
+
+@waffle_flag('thrends')
+def thrends_tags(request):
+    return render(request, 'blog/thrends_tag.html', {'thrends': []})

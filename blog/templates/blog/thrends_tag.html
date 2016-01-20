@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Thrends</h1>
+    {% for thrend in thrends %}
+        <div class="post">
+            {{ thrend }}
+        </div>
+    {% empty %}
+        <div class="post">No thrends yet.</div>
+    {% endfor %}
+{% endblock content %}

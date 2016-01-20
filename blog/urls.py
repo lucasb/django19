@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^post/(?P<id>[0-9]+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^comment/(?P<id>[0-9]+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<id>[0-9]+)/remove/$', views.comment_remove, name='comment_remove'),
+    url(r'^thrends/$', views.thrends_tags)
 ]
