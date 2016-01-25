@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, handler404, handler400, handler500
 from django.contrib import admin
 from django.contrib.auth import views
+
+from . import views as errors_view
 
 
 urlpatterns = [
@@ -24,3 +26,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout, {'next_page': '/'}),
     url(r'', include('blog.urls')),
 ]
+
+handler400 = errors_view.not_authorazed
+handler404 = errors_view.page_not_found
+handler500 = errors_view.server_error
