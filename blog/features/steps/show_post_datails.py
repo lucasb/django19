@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 # Copy the snippets from .feature into our file
 @given('there is a user')
 def backgrond(context):
-    print('first of alls')
     row = context.table[0]
     user = UserFactory(id=row['id'], username=row['username'])
 
@@ -36,6 +35,7 @@ def looking_post_details(context, id):
 
 @then('I see this title "{title}"')
 def see_title(context, title):
-    title_found = context.browser.find_by_css('.post h1')
-    print(title_found)
+    # command to see webpage that was redered.
+    # context.browser.driver.save_screenshot('text.png')
+    title_found = context.browser.find_by_css('.post h1').first.text
     assert title == title_found

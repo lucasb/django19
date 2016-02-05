@@ -1,6 +1,6 @@
 from behave import *
 
-from splinter.browser import Browser
+from splinter import Browser
 
 from django.core import management
 
