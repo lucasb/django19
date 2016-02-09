@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^accounts/login/$', views.login),
     url(r'^accounts/logout/$', views.logout, {'next_page': '/'}),
     url(r'', include('blog.urls')),
+    url(r'^polls/', include('polls.urls')),
 ]
 
 handler400 = errors_view.not_authorazed
